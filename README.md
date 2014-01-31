@@ -1,8 +1,8 @@
-# CHUWEVA-GOLD (Team 2)
+## CHUWEVA-GOLD (Team 2)
 #### v1.1 - Feb 1, 2014
 
 
-  Changelogs:
+  ###### Changelogs:
   
     v1.1 - Feb 1, 2014
       + `favorites` improvements
@@ -13,13 +13,15 @@
       + completion of `favorites`
       
       
-  Modules Assigned:
+  ###### Modules Assigned:
   ```
   + Favorites
   + Reservations
   + Notifications 
   ```
     
+---
+
   Team Lead:
   ```
   + BERNAL, Kevin Lloyd H.
