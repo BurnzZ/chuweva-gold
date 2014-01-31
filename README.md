@@ -1,8 +1,5 @@
-CHUWEVA-GOLD (Team 2)
-
-@version           v1.1 - Feb 1, 2014
-
-
+# CHUWEVA-GOLD (Team 2)
+#### v1.1 - Feb 1, 2014
 
 
   Changelogs:
@@ -18,18 +15,18 @@ CHUWEVA-GOLD (Team 2)
       
   Modules Assigned:
   
-  - Favorites
-  - Reservations
-  - Notifications 
+  + Favorites
+  + Reservations
+  + Notifications 
     
     
   Team Lead:
   
-  - BERNAL, Kevin Lloyd H.
-    
+  + BERNAL, Kevin Lloyd H.
+   
   Developers:
   
-  - ADVINCULA, Kim Joshua C.
-  - De RAMOS, Marc Ulysis
-  - VILLANUEVA, YSSA MARIE
+  + ADVINCULA, Kim Joshua C.
+  + De RAMOS, Marc Ulysis
+  + VILLANUEVA, YSSA MARIE
   
