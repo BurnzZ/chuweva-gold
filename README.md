@@ -14,19 +14,21 @@
       
       
   Modules Assigned:
-  
+  ```
   + Favorites
   + Reservations
   + Notifications 
-    
+  ```
     
   Team Lead:
-  
+  ```
   + BERNAL, Kevin Lloyd H.
+  ```
    
   Developers:
-  
+  ```
   + ADVINCULA, Kim Joshua C.
   + De RAMOS, Marc Ulysis
   + VILLANUEVA, YSSA MARIE
+  ```
   
