@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "favorites";
+$route['default_controller'] = "team2";
 $route['404_override'] = '';
 
 

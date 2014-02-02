@@ -3,7 +3,12 @@
 
 
   Changelogs:
-  
+
+    v1.2 - Feb 2, 2014
+      + `favorites` finalization
+      + `favorites` AJAX ready
+      + `favorites` included examples
+	
     v1.1 - Feb 1, 2014
       + `favorites` improvements
       + `favorites` controller methods in AJAX-ready form
