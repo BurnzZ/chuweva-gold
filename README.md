@@ -1,11 +1,15 @@
 CHUWEVA-GOLD (Team 2)
 
-@version           v1.1 - Feb 1, 2014
-
-
+@version           v1.3 - Feb 3, 2014
 
 
   Changelogs:
+
+    v1.3 - Feb 3, 2014
+      + `favorites` typo corrections in both syntax and comments
+      + `reserves` initial coding in controller and model
+         - lacks controller->enqueue() and its model counterpart 
+         - did not test yet, assumption: working
 
     v1.2 - Feb 2, 2014
       + `favorites` finalization
@@ -24,7 +28,7 @@ CHUWEVA-GOLD (Team 2)
   Modules Assigned:
   
   - Favorites
-  - Reservations
+  - Reserve
   - Notifications 
     
     

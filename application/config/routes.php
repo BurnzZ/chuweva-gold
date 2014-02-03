@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "team2";
+$route['default_controller'] = "reserve";
 $route['404_override'] = '';
 
 
