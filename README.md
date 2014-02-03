@@ -1,11 +1,9 @@
-<<<<<<< HEAD
 CHUWEVA-GOLD (Team 2)
 
 @version           v1.3 - Feb 3, 2014
 =======
 ## CHUWEVA-GOLD (Team 2)
 #### v1.1 - Feb 1, 2014
->>>>>>> 8f5e7995607072d47e55f9ecde310b09be462551
 
 
   Changelogs:
@@ -31,7 +29,6 @@ CHUWEVA-GOLD (Team 2)
       
       
   Modules Assigned:
-<<<<<<< HEAD
   
   - Favorites
   - Reserve
@@ -43,7 +40,6 @@ CHUWEVA-GOLD (Team 2)
   + Reservations
   + Notifications 
   ```
->>>>>>> 8f5e7995607072d47e55f9ecde310b09be462551
     
 ---
 
