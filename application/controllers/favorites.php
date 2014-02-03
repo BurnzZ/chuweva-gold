@@ -45,7 +45,6 @@ class Favorites extends CI_Controller {
 
 	/*
 	*	Sample call of this function in AJAX.
-	*	`info` is a js var[] containing the data needed.
 	*
 	*	$.ajax({
 	*		url : "http://localhost/128_team2/favorites/get_all/" + username,
