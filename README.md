@@ -1,6 +1,3 @@
-CHUWEVA-GOLD (Team 2)
-
-@version           v1.3 - Feb 3, 2014
 =======
 ## CHUWEVA-GOLD (Team 2)
 #### v1.1 - Feb 1, 2014
