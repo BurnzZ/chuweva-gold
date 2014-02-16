@@ -3,12 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 02, 2014 at 05:11 AM
+-- Generation Time: Feb 03, 2014 at 11:10 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "+08:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -63,7 +63,9 @@ CREATE TABLE IF NOT EXISTS `admin` (
 CREATE TABLE IF NOT EXISTS `author` (
   `book_no` varchar(12) NOT NULL,
   `name` varchar(255) NOT NULL,
-  KEY `book_no` (`book_no`)
+  PRIMARY KEY (`book_no`,`name`),
+  KEY `book_no` (`book_no`),
+  KEY `book_no_2` (`book_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -71,10 +73,12 @@ CREATE TABLE IF NOT EXISTS `author` (
 --
 
 INSERT INTO `author` (`book_no`, `name`) VALUES
-('NB_556_43', 'James Cameron'),
-('OY_23_1', ''),
-('OY_23_1', 'Rick Rottenmayer'),
-('QA_431_65', 'Ray Johnson');
+('AB 1234', 'Maila Medina'),
+('CD 4321', 'Ysa Angeles'),
+('EF 5678', 'Rey Benedicto'),
+('GH 8765', 'Yay Sabado'),
+('IJ 1357', 'Paulo Cuenca'),
+('KL 2468', 'Kim Samaniego');
 
 -- --------------------------------------------------------
 
@@ -85,10 +89,11 @@ INSERT INTO `author` (`book_no`, `name`) VALUES
 CREATE TABLE IF NOT EXISTS `book` (
   `book_no` varchar(12) NOT NULL,
   `book_title` varchar(255) NOT NULL,
-  `status` enum('available','reserved','borrowed') NOT NULL DEFAULT 'available',
+  `status` enum('available','borrowed','reserved') NOT NULL DEFAULT 'available',
   `description` varchar(255) DEFAULT NULL,
   `publisher` varchar(255) DEFAULT NULL,
   `date_published` date DEFAULT NULL,
+  `Tags` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`book_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -96,10 +101,13 @@ CREATE TABLE IF NOT EXISTS `book` (
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`book_no`, `book_title`, `status`, `description`, `publisher`, `date_published`) VALUES
-('NB_556_43', 'PHP Advanced, Ninth Ed.', 'available', 'More on PHP topics', 'Owl Press', '2014-01-12'),
-('OY_23_1', 'Parallel Programming', 'available', 'Introduction to basic parallel programming', 'New River House', '2013-12-02'),
-('QA_431_65', 'Introduction to C', 'available', 'basic C', 'English Publishing House', '2013-10-15');
+INSERT INTO `book` (`book_no`, `book_title`, `status`, `description`, `publisher`, `date_published`, `Tags`) VALUES
+('AB 1234', 'Merry Christmas', 'available', 'Happy New Yeare', 'Santa Claus', '2014-01-18', NULL),
+('CD 4321', 'How To Program in Java', 'reserved', 'Search Google Chrome', 'Not A Programmer', '2014-01-01', NULL),
+('EF 5678', 'How To Kill Spiders', 'borrowed', 'Shoe', 'Microsoft', '2013-08-06', NULL),
+('GH 8765', 'Sleeping in Class Tips', 'available', 'Sleep peacefully while in Class', 'Rey Benedicto', '2014-04-18', NULL),
+('IJ 1357', 'French Fries from Potatoes', 'reserved', 'Learn how to eat potatoes', 'McDo', '2013-09-17', NULL),
+('KL 2468', 'Cram Efficiently', 'available', 'Learn how to waste time then cram', 'Rey Benedicto', '2012-11-06', NULL);
 
 -- --------------------------------------------------------
 
@@ -115,14 +123,6 @@ CREATE TABLE IF NOT EXISTS `favorites` (
   KEY `favorites_book_no` (`book_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `favorites`
---
-
-INSERT INTO `favorites` (`username`, `book_no`, `date_added`) VALUES
-('user123', 'OY_23_1', '0000-00-00 00:00:00'),
-('user123', 'QA_431_65', '2014-01-30 12:34:56');
-
 -- --------------------------------------------------------
 
 --
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `lend` (
   `book_no` varchar(12) NOT NULL,
   `username_user` varchar(18) NOT NULL,
   `email` varchar(18) NOT NULL,
-  `date_borrowed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_borrowed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_returned` timestamp NULL DEFAULT NULL,
   `username_admin` varchar(18) NOT NULL,
   PRIMARY KEY (`transaction_no`,`book_no`,`username_user`,`email`,`username_admin`),
@@ -155,16 +155,28 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   `username_admin` varchar(18) NOT NULL,
   `username_user` varchar(18) NOT NULL,
   `book_no` varchar(12) NOT NULL,
-  `message` varchar(755) NOT NULL,
+  `message` varchar(755),
   `date_sent` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `type` enum('overdue','claim','custom') NOT NULL,
-  `seen` tinyint(1) NOT NULL DEFAULT '0',
-  `hidden` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`,`username_admin`,`username_user`,`book_no`),
   KEY `notifications_username_user` (`username_admin`),
   KEY `notifications_username_admin` (`username_user`),
   KEY `notifications_book_no` (`book_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `our`
+--
+
+CREATE TABLE IF NOT EXISTS `our` (
+  `student_no` varchar(10) NOT NULL,
+  `name_first` varchar(24) NOT NULL,
+  `name_middle` varchar(24) NOT NULL,
+  `name_last` varchar(24) NOT NULL,
+  PRIMARY KEY (`student_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -177,10 +189,12 @@ CREATE TABLE IF NOT EXISTS `reserves` (
   `username` varchar(18) NOT NULL,
   `email` varchar(24) NOT NULL,
   `date_reserved` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `rank` smallint(6) NOT NULL,
-  PRIMARY KEY (`book_no`,`username`,`email`),
+  `rank` smallint(6) NOT NULL AUTO_INCREMENT,
+  `notified` smallint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`book_no`,`username`,`email`,`rank`),
   KEY `reserves_username` (`username`),
-  KEY `reserves_email` (`email`)
+  KEY `reserves_email` (`email`),
+  KEY `reserves_rank` (`rank`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -210,14 +224,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`username`, `password`, `sex`, `status`, `email`, `usertype`, `emp_no`, `student_no`, `name_first`, `name_middle`, `name_last`, `mobile_no`, `course`, `college`) VALUES
-('user123', 'user123', 'male', 'enabled', 'user123@gmail.com', 'student', NULL, '2011-12345', 'Jose', 'Mercado', 'Rizal', 2147483647, 'BS CS', 'CAS'),
-('user789', 'user789', 'male', 'enabled', 'user789@gmail.com', 'student', NULL, '2011-98765', 'That Guy', 'Potato', 'Derp', 2147483647, 'BS CS', 'CAS');
-
---
 -- Constraints for dumped tables
 --
 
@@ -233,7 +239,7 @@ ALTER TABLE `account_history`
 -- Constraints for table `author`
 --
 ALTER TABLE `author`
-  ADD CONSTRAINT `author_book_no` FOREIGN KEY (`book_no`) REFERENCES `book` (`book_no`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `author_book_no` FOREIGN KEY (`book_no`) REFERENCES `book` (`book_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `favorites`
