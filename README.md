@@ -1,9 +1,17 @@
 =======
 ## CHUWEVA-GOLD (Team 2)
-#### v1.4 - Feb 9, 2014
+#### v1.5 - Feb 16, 2014
 
 
   Changelogs:
+
+    v1.5 - Feb 16, 2014
+      + updated SQL regarding for new implementations in
+          `reserves`, `favorites`, and `notifs`
+      + fixed reserve->dequeue() not deleting the dequeued data
+      + assignment for Ulysis and Yssa for 'claim_notifs' sub module
+        - added verbose instructions
+        - added pre-made AJAX calls
 
     v1.4 - Feb 9, 2014
       + `reserves` model->dequeue() fixed query() string mistake
