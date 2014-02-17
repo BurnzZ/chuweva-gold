@@ -1,9 +1,12 @@
 =======
 ## CHUWEVA-GOLD (Team 2)
-#### v1.5 - Feb 16, 2014
+#### v1.6.a - Feb 17, 2014
 
 
   Changelogs:
+
+    v1.6.a - Feb 17, 2014
+      + added favorites->check() for checking existing reservations
 
     v1.5 - Feb 16, 2014
       + updated SQL regarding for new implementations in

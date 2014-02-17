@@ -96,7 +96,7 @@ class Reserve extends CI_Controller {
 
 		$result = $this->reserve_model->check($data);
 		echo json_encode($result);
-	}
+	}	
 
 
 	/*
