@@ -1,6 +1,6 @@
 =======
 ## CHUWEVA-GOLD (Team 2)
-#### v1.6 - Feb 18, 2014
+#### v1.7 - Feb 18, 2014
 
 
   Changelogs:
