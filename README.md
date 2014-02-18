@@ -1,9 +1,19 @@
 =======
 ## CHUWEVA-GOLD (Team 2)
-#### v1.6.a - Feb 17, 2014
+#### v1.6 - Feb 18, 2014
 
 
   Changelogs:
+
+    v1.7 - Feb 18, 2014
+      + fixes for incorrect timestamp from view-AJAX to controller
+        - added date_default_timezone_set("Asia/Manila")
+      + `reserves` and `favorites`
+        - optimized
+        - improved AJAX response and handling
+        - removed comments to rely on readable code
+        - implementing $_SESSION within the controller for username retrieval
+        - added initial public encapsulation to methods within both model and controller
 
     v1.6.a - Feb 17, 2014
       + added favorites->check() for checking existing reservations
